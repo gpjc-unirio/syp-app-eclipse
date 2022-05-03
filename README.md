@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
+
 # SYPApp (Scripting Your Process - Application)
 
 **Scripting Your Process - Application**, or simply SYPApp, is a online software to support the business process-based interactive narrative design. It is a tool that helps screenwriters import BPMN files and associate BPMN's elements to narrative elements. The software generates step outlines, enables people to create narrative scenes, and exports narratives to script files or interactive narratives based on Inkle's scripting language.
@@ -15,7 +17,7 @@
 
 ## Project status
 
-**SYPApp** is still a software prototype for academic purposes, result of a master's research in PPGI/UNIRIO (Graduate Program on Informatics in the Federal University of State of Rio de Janeiro). Nevertheless, its functionalities already can support screenwriters in the task of converting business process models to narratives.
+**SYPApp** is still a software prototype for academic purposes, result of a master's research in PPGI/UNIRIO (Graduate Program on Informatics in the Federal University of State of Rio de Janeiro). Nevertheless, its functionalities already can support screenwriters in the task of converting business process models to narratives. **SYPApp** follow the MVC (Model-View-Controller) architecture.
 
 
 ## Download
@@ -28,24 +30,42 @@
 
 **SYPApp** is built using:
 
-* [Java](https://java.com/), considering JSP (JavaServer Pages).
-* [JavaServer Faces Technology](https://www.oracle.com/java/technologies/javaserverfaces.html), a Java technology for bulding server-side user interfaces to the web.
-* [Prime Faces](https://www.primefaces.org/), for some of the components. 
+* [Java](https://java.com/), considering JAVA EE using JSF (JavaServer Pages) v2.2.
+* [JavaServer Faces Technology](https://www.oracle.com/java/technologies/javaserverfaces.html) a Java technology for bulding server-side user interfaces to the web.
+* [Prime Faces](https://www.primefaces.org/) version 8.0, for some of the components. 
 * [Hibernate](https://hibernate.org/), for ORM framework that connects the data base to software features. 
+* [Tomcat](https://tomcat.apache.org/download-90.cgi) v.9, apache server for Java web.
 * [MySQL](https://www.mysql.com/), for Data Base repositories. 
 * [BPMN](https://www.omg.org/spec/BPMN/2.0/About-BPMN/), as business process language to convert into narrative elements. 
+* [Camunda](https://github.com/camunda/camunda-modeler) v. 7.1.0 libray for manipulate BPMN files.
 
 
 ## SAPApp Development
 
 To build the project:
 
-* Install [node.js](https://nodejs.org/en/) if you don't already have it
+* Install [MySQL](https://www.mysql.com/) if you don't already have it. After that, create a data base instance (we recomend the name syp for te instance) and a user with root permission (create, update and delete the data base metadata and records)
+* Install [Eclipse IDE](https://www.eclipse.org/downloads/packages/release/oxygen/3a/eclipse-ide-java-developers) to edit the Java code.
 * Clone the repo
-* On Mac, double-click the `INSTALL_AND_RUN.command` script. On Windows, open Powershell, cd into the app directory, and type `npm install`, then `npm start`.
-* For subsequent runs, if no npm packages have changed, you can run the `RUN.command` script on Mac, or type `npm start` in the shell (on Windows).
+* Importe the source code into Eclipse
+* In the file **"persistence.xml"** (inside of META-INF directory) update the user's information to access the data base. So, create (or uptade, in caso of it exists) three tags:
 
+```
+<property name="javax.persistence.jdbc.url" value="" />
+```
+In the 'value' attribute you must put the server address. Ex.: jdbc:mysql://localhost/syp (neste caso o nome da instância criada é "syp")
 
+```
+<property name="javax.persistence.jdbc.user" value="" />
+```
+In the 'value' attribute you must put the data base user name.
+
+```
+<property name="javax.persistence.jdbc.password" value="" />
+```
+In the 'value' attribute you must put the data base user password.
+
+*Server configuration: before start Tomncat, save the .war file into "webapps" directory them, run the server. After this, the software is ready to run.
 
 ## License
 
