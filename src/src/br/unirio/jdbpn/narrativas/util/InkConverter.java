@@ -168,7 +168,7 @@ public abstract class InkConverter {
 
 						for (RelacaoSentencas relacaoSentencas : mapeamentoDasProximasSentencas) {
 							bufferedWriter.write(indentacao(qtdDeIndentacao) + "+ [");
-							if (relacaoSentencas.getNomeOpcao() == null || relacaoSentencas.getNomeOpcao().isBlank()) {
+							if (relacaoSentencas.getNomeOpcao() == null || relacaoSentencas.getNomeOpcao().trim().equals("")) {
 								rota++;
 								bufferedWriter.write("Rota" + String.valueOf(rota));
 							} else {

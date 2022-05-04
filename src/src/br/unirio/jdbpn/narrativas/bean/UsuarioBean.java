@@ -60,7 +60,9 @@ public class UsuarioBean implements Serializable {
 
 	public boolean podeCadastrarUsuario(Usuario usuarioLogado) {
 		boolean nenhumUsuario = new DAO<Usuario>(Usuario.class).listaTodos().size() == 0;
-		boolean administrador = usuarioLogado.isUsuarioAdministrador();
+		boolean administrador = false;
+		if(usuarioLogado != null)
+			administrador = usuarioLogado.isUsuarioAdministrador();
 
 		return nenhumUsuario || administrador;
 	}
