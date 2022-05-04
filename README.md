@@ -65,7 +65,7 @@ In the 'value' attribute you must put the data base user name.
 ```
 In the 'value' attribute you must put the data base user password.
 
-*Server configuration: before start Tomncat, save the .war file into "webapps" directory them, run the server. After this, the software is ready to run.
+* Server configuration: before start Tomncat, save the .war file into "webapps" directory them, run the server. After this, the software is ready to run.
 
 ## License
 
