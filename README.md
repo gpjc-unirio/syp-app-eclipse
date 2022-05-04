@@ -49,7 +49,7 @@ To build the project:
 * Install [Eclipse IDE](https://www.eclipse.org/downloads/packages/release/oxygen/3a/eclipse-ide-java-developers) to edit the Java code.
 * Clone the repository
 * Importe the source code into Eclipse
-* In the file **"persistence.xml"** (inside of META-INF directory) update the user's information to access the data base. So, create (or uptade, in caso of it exists) three tags:
+* In the file **"persistence.xml"** (inside of META-INF directory) update the user's information to access the data base. So, create (or uptade, in case of it exists) three tags:
 
 ```
 <property name="javax.persistence.jdbc.url" value="" />
