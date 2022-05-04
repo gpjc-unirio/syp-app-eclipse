@@ -1,5 +1,7 @@
 [![License: MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
+<p align="center"><img src="img/logo.png" alt="SYPApp" height="76" border="0" /></p>
+
 # SYPApp (Scripting Your Process - Application)
 
 **Scripting Your Process - Application**, or simply SYPApp, is a online software to support the business process-based interactive narrative design. It is a tool that helps screenwriters import BPMN files and associate BPMN's elements to narrative elements. The software generates step outlines, enables people to create narrative scenes, and exports narratives to script files or interactive narratives based on Inkle's scripting language.
@@ -19,7 +21,6 @@
 
 **SYPApp** is still a software prototype for academic purposes, result of a master's research in PPGI/UNIRIO (Graduate Program on Informatics in the Federal University of State of Rio de Janeiro). Nevertheless, its functionalities already can support screenwriters in the task of converting business process models to narratives. **SYPApp** follow the MVC (Model-View-Controller) architecture.
 
-
 ## Download
 
 ### Mac, Windows and Linux
@@ -35,25 +36,25 @@
 * [Prime Faces](https://www.primefaces.org/) version 8.0, for some of the components. 
 * [Hibernate](https://hibernate.org/), for ORM framework that connects the data base to software features. 
 * [Tomcat](https://tomcat.apache.org/download-90.cgi) v.9, apache server for Java web.
-* [MySQL](https://www.mysql.com/), for Data Base repositories. 
+* [MySQL](https://www.mysql.com/) v. 5.7, for Data Base repositories. 
 * [BPMN](https://www.omg.org/spec/BPMN/2.0/About-BPMN/), as business process language to convert into narrative elements. 
 * [Camunda](https://github.com/camunda/camunda-modeler) v. 7.1.0 libray for manipulate BPMN files.
 
 
-## SAPApp Development
+## SYPApp Development
 
 To build the project:
 
-* Install [MySQL](https://www.mysql.com/) if you don't already have it. After that, create a data base instance (we recomend the name syp for te instance) and a user with root permission (create, update and delete the data base metadata and records)
+* Install [MySQL](https://www.mysql.com/) if you don't already have it. After that, create a data base instance or schema (we recomend the name syp for te instance) and a user with root permission (create, update and delete the data base metadata and records)
 * Install [Eclipse IDE](https://www.eclipse.org/downloads/packages/release/oxygen/3a/eclipse-ide-java-developers) to edit the Java code.
-* Clone the repo
+* Clone the repository
 * Importe the source code into Eclipse
 * In the file **"persistence.xml"** (inside of META-INF directory) update the user's information to access the data base. So, create (or uptade, in caso of it exists) three tags:
 
 ```
 <property name="javax.persistence.jdbc.url" value="" />
 ```
-In the 'value' attribute you must put the server address. Ex.: jdbc:mysql://localhost/syp (neste caso o nome da instância criada é "syp")
+In the 'value' attribute you must put the server address. Ex.: jdbc:mysql://localhost/syp?useSSL=false (in caso of your data base schema was called by "syp")
 
 ```
 <property name="javax.persistence.jdbc.user" value="" />
@@ -65,7 +66,11 @@ In the 'value' attribute you must put the data base user name.
 ```
 In the 'value' attribute you must put the data base user password.
 
-* Server configuration: before start Tomncat, save the .war file into "webapps" directory them, run the server. After this, the software is ready to run.
+* Server configuration: Before starting the Tomcat server, save the .war file into the "webapps" directory and run the server. After this, the software is ready to run. Case necessary, edit the BPMN file path (directory META-INF ''bpmn_directory.txt''. It is required to put the correct serve path information. If your Tomcat server runs applications inside of "webapps" folder, you do not need to do anything).
+
+## SYPApp Help (In portuguese)
+
+The [SYPApp's help](https://github.com/gpjc-unirio/syp-app/blob/main/docs/syp_help_v0.0.1.pdf) is in portuguese, the native language of the developers of this software.
 
 ## License
 
