@@ -197,7 +197,7 @@ public abstract class BpmnParaSentencas {
 						ElementoBpmn sequenciaDoGateway = new ElementoBpmn(sequenceFlow.getTarget());
 
 						if (opcaoDoGateway == null) {
-							opcaoDoGateway = "Opção " + String.valueOf(contadorDeCaminhos);
+							opcaoDoGateway = "Camimho " + String.valueOf(contadorDeCaminhos);
 						}
 
 						Sentenca proximaSentenca;

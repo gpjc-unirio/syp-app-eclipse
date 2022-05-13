@@ -179,12 +179,22 @@ public class CenaBean implements Serializable {
 		this.cena.setTipoDeLocal(TipoDeLocalEnum.Interno.toString());
 	}
 
+	private int buscarOrdemCena(List<Cena> cenas, Cena cena) {
+		for (Cena c : cenas) {
+			if(c.getSentenca().getId() == cena.getSentenca().getId()) {
+				return c.getOrdem();
+			}
+		}
+		
+		return -1;
+	}
+	
 	public String cadastrar() {
 		FacesContext context = FacesContext.getCurrentInstance();
 
 		try {
-
 			cena.setProjeto(projeto);
+			
 
 			List<Personagem> personagensEscolhidos = personagensDoProjeto.getTarget();
 			if (personagensEscolhidos.size() > 0) {
@@ -202,7 +212,7 @@ public class CenaBean implements Serializable {
 
 					Sentenca sentencaBD = new DAO<Sentenca>(Sentenca.class).buscaPorId(sentencaDaCena.getId());
 					cena.setSentenca(sentencaBD);
-
+					
 					cena.setOrdem(sentencaBD.getNumero() - obterQuantidadeDeSentencasSemCena());
 
 					if (sentencaBD.getTipoDeElementoBPMN().equals(TipoDeElementoEnum.EVENTO_INICIAL.getTipo())) {

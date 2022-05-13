@@ -117,23 +117,28 @@ public abstract class GeradorDeRoteiroHtml {
 	private static String incluirCenaNoRoteiro(Cena cena) {
 		// Cabeçalho da cena
 		String local = cena.getLocal();
-		String tempo = cena.getTempo();
-		if (local.length() <= 1) {
-			local = "Local indeterminado";
-		} else {
-			local = TipoDeLocalEnum.valueOf(cena.getTipoDeLocal()).getAbreviado() + " " + local;
-		}
-		String texto = "<div class=\"cena-titulo\"><span class=\"cena-numero\">" + cena.getOrdem() + "</span> " + local;
+		String tempo = cena.getTempo();	
+			
+		String texto = "<div class=\"cena-titulo\"><span class=\"cena-numero\">" + cena.getOrdem() + "</span> " + cena.getTitulo();
 		if (tempo.length() > 1) {
 			texto = texto + " - " + tempo + "</div>";
 		} else {
 			texto = texto + "</div>";
 		}
+		
+		if (local.length() <= 1) {
+			local = "Local indeterminado";
+		} else {
+			local = TipoDeLocalEnum.valueOf(cena.getTipoDeLocal()).getAbreviado() + " " + local;
+		}
+		texto = texto + "<div class=\"acao\">[LOCAL]: " + local + "</div>";
+		
 
 		// Ação, personagens e diálogos da cena
 		if (cena.getDescricaoBreve() != null && cena.getDescricaoBreve().length() > 1) {
 			texto = texto + "<div class=\"acao\">" + cena.getDescricaoBreve() + "</div>";
 		}
+		
 		List<Dialogo> dialogos = new DialogoDao().buscarPorCena(cena);
 		if (dialogos != null && dialogos.size() > 0) {
 			for (Dialogo dialogo : dialogos) {

@@ -3,6 +3,8 @@ package br.unirio.jdbpn.narrativas.bean;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -136,6 +138,18 @@ public class SentencaBean implements Serializable {
 			this.listaDeCenasDoProjeto = new CenaDao().buscarPorProjeto(this.projeto);
 		} else {
 			this.listaDeCenasDoProjeto = SentencasParaCenas.converterLista(listaDeSentencasDoProjeto);
+			
+			this.listaDeCenasDoProjeto.sort(new Comparator<Cena>() {
+
+				@Override
+				public int compare(Cena cena1, Cena cena2) {
+					if(cena1.equals(cena2)) {
+						return 0;
+					}
+					return Integer.compare(cena1.getAto(), cena2.getAto());
+				}
+				
+			});;
 		}
 
 		// Atualização do log / contador de tempo

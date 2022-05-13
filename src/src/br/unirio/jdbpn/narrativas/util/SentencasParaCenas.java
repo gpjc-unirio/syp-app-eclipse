@@ -11,12 +11,13 @@ import br.unirio.jdbpn.narrativas.model.RelacaoSentencas;
 import br.unirio.jdbpn.narrativas.model.Sentenca;
 
 public abstract class SentencasParaCenas {
-
+	
 	public static List<Cena> converterLista(List<Sentenca> sentencas) {
 
 		List<Cena> cenas = new ArrayList<Cena>();
+		
 		int ordem = 0;
-
+		
 		for (Sentenca sentenca : sentencas) {
 			Cena cena = new Cena();
 
@@ -29,12 +30,18 @@ public abstract class SentencasParaCenas {
 					cena.setProjeto(sentenca.getProjeto());
 					cena.setSentenca(sentenca);
 					cena.setOrdem(ordem);
+					
+					if (sentenca.getTipoDeElementoBPMN().equals(TipoDeElementoEnum.EVENTO_INICIAL.getTipo())) {
+						cena.setAto(1);
+					} else if (sentenca.getTipoDeElementoBPMN().equals(TipoDeElementoEnum.EVENTO_FINAL.getTipo())) {
+						cena.setAto(3);
+					} else {
+						cena.setAto(2);
+					}
 				}
 				cenas.add(cena);
 			}
-
 		}
-
 		return cenas;
 
 	}

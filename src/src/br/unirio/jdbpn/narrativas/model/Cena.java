@@ -11,6 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Cena implements Comparable<Cena> {
@@ -33,12 +34,16 @@ public class Cena implements Comparable<Cena> {
 	private List<Personagem> personagens;
 	@Lob
 	private String detalhamentoDaCena;
+	@Lob	
 	private String gatilhos;
+	@Lob
 	private String resultados;
 	@OneToOne
 	private Cena cenaAnterior;
 	private int ordem;
 	private int ato;
+	@Transient
+	private String observacaoInk;
 
 	public int getId() {
 		return id;
@@ -166,6 +171,14 @@ public class Cena implements Comparable<Cena> {
 
 	public void setAto(int ato) {
 		this.ato = ato;
+	}
+	
+	public String getObservacaoInk() {
+		return observacaoInk;
+	}
+
+	public void setObservacaoInk(String observacaoInk) {
+		this.observacaoInk = observacaoInk;
 	}
 
 	@Override
