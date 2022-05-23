@@ -65,23 +65,26 @@ public class CenaBean implements Serializable {
 	public Cena getCena() {
 		String gatilhos = "";
 
-		List<RelacaoSentencas> relacoes = sentencaDaCena.getSentencasFilhas();
-
-		// Gatilhos da cena
-		if (cena.getGatilhos() == null && sentencaDaCena.getId() > 0
-				&& sentencaDaCena.getTipoDeElementoBPMN().equals(TipoDeElementoEnum.GATEWAY_EXCLUSIVO.getTipo())) {
-			for (RelacaoSentencas relacao : relacoes) {
-				if (!relacao.getSentencaFilha().isNaoVaiTerCena()) {
-					gatilhos = gatilhos + "Se for " + relacao.getNomeOpcao() + ", vai para a cena ["
-							+ relacao.getSentencaFilha().getSentencaCompleta() + "]. ";
+		if(sentencaDaCena != null) {
+			List<RelacaoSentencas> relacoes = sentencaDaCena.getSentencasFilhas();
+	
+			// Gatilhos da cena
+			if (cena.getGatilhos() == null && sentencaDaCena.getId() > 0
+					&& sentencaDaCena.getTipoDeElementoBPMN().equals(TipoDeElementoEnum.GATEWAY_EXCLUSIVO.getTipo())) {
+				for (RelacaoSentencas relacao : relacoes) {
+					if (!relacao.getSentencaFilha().isNaoVaiTerCena()) {
+						gatilhos = gatilhos + "Se for " + relacao.getNomeOpcao() + ", vai para a cena ["
+								+ relacao.getSentencaFilha().getSentencaCompleta() + "]. ";
+					}
 				}
+				cena.setGatilhos(gatilhos);
 			}
-			cena.setGatilhos(gatilhos);
+	
+			if (cena.getTitulo() == null && sentencaDaCena.getId() > 0) {
+				cena.setTitulo(sentencaDaCena.getSentencaCompleta());
+			}
 		}
-
-		if (cena.getTitulo() == null && sentencaDaCena.getId() > 0) {
-			cena.setTitulo(sentencaDaCena.getSentencaCompleta());
-		}
+		
 		return cena;
 	}
 
