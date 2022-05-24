@@ -145,7 +145,7 @@ public abstract class InkConverter {
 
 			// Descrição breve da cena
 			if (cena.getDescricaoBreve() != null && cena.getDescricaoBreve().length() > 1) {
-				bufferedWriter.write(indentacao(qtdDeIndentacao) + cena.getDescricaoBreve());
+				bufferedWriter.write(indentacao(qtdDeIndentacao) + "Descrição da Cena: " + cena.getDescricaoBreve());
 				bufferedWriter.newLine();
 			}
 
@@ -937,7 +937,7 @@ public abstract class InkConverter {
 
 			// Descrição breve da cena
 			if (cena.getDescricaoBreve() != null && cena.getDescricaoBreve().length() > 1) {
-				bufferedWriter.write(indentacao(qtdDeIndentacao) + cena.getDescricaoBreve());
+				bufferedWriter.write(indentacao(qtdDeIndentacao) + "Descrição da Cena: " + cena.getDescricaoBreve());
 				bufferedWriter.newLine();
 			}
 
