@@ -136,7 +136,7 @@ public abstract class GeradorDeRoteiroHtml {
 
 		// Ação, personagens e diálogos da cena
 		if (cena.getDescricaoBreve() != null && cena.getDescricaoBreve().length() > 1) {
-			texto = texto + "<div class=\"acao\">" + cena.getDescricaoBreve() + "</div>";
+			texto = texto + "<div class=\"acao\">[DESCRIÇÃO DA CENA]: " + cena.getDescricaoBreve() + "</div>";
 		}
 		
 		List<Dialogo> dialogos = new DialogoDao().buscarPorCena(cena);
