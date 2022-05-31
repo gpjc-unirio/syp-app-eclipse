@@ -21,19 +21,19 @@
 				<p:menuitem value="Meus Projetos" url="inicio.xhtml" />
 				<p:menuitem value="#{autorBean.projeto.nome}"
 					url="gerenciarProjeto.xhtml?projetoId=#{autorBean.projeto.id}" />
-				<p:menuitem value="Gerenciar Projeto"
+				<p:menuitem value="#{languageBean.labelManage}"
 					url="gerenciarProjeto.xhtml?projetoId=#{autorBean.projeto.id}" />
-				<p:menuitem value="Atribuir Autor ao Projeto" url="#" />
+				<p:menuitem value="#{languageBean.authorLblAdicionar}" url="#" />
 			</p:breadCrumb>
 			<p:outputPanel>
 				<h3>
-					Adicionar Autor ao Projeto ::
+					<h:outputText value="#{languageBean.authorLblAdicionar}" /> ::
 					<h:outputText value="#{autorBean.projeto.nome}" />
 				</h3>
 			</p:outputPanel>
 			<p:dataList value="#{autorBean.autoresDoProjeto}" var="autor"
 				style="margin-bottom: 10px">
-				<f:facet name="header">Autores Cadastrados</f:facet>
+				<f:facet name="header"><h:outputText value="#{languageBean.authorClmAutores}" /></f:facet>
 				<h:outputText value="${autor.nomeUsuario}" /> - 
 					<h:outputText value="${autor.emailUsuario}" />
 			</p:dataList>
@@ -47,7 +47,7 @@
 				<f:validateRegex pattern=".+@.+" />
 				<f:ajax event="blur" render="messages" />
 			</p:inputText>
-			<p:commandButton value="Adicionar" icon="pi pi-fw pi-user-plus"
+			<p:commandButton value="#{languageBean.authorBtnAdicionar}" icon="pi pi-fw pi-user-plus"
 				action="#{autorBean.adicionarAutor}" />
 		</h:form>
 	</ui:define>

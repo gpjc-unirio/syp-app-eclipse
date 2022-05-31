@@ -23,23 +23,23 @@
 				<p:menuitem value="Meus Projetos" url="inicio.xhtml" />
 				<p:menuitem value="#{sentencaBean.projeto.nome}"
 					url="gerenciarProjeto.xhtml?projetoId=#{sentencaBean.projeto.id}" />
-				<p:menuitem value="Gerenciar Projeto"
+				<p:menuitem value="#{languageBean.labelManage}"
 					url="gerenciarProjeto.xhtml?projetoId=#{sentencaBean.projeto.id}" />
-				<p:menuitem value="Diagrama BPMN" url="#" />
+				<p:menuitem value="#{languageBean.menuBPMN}" url="#" />
 			</p:breadCrumb>
 			<p:outputPanel>
 				<h3>
-					Diagrama BPMN ::&nbsp;
+					<h:outputText value="#{languageBean.menuBPMN}" /> ::&nbsp;
 					<h:outputText value="#{sentencaBean.projeto.nome}" />
 				</h3>
 			</p:outputPanel>
-			<p:staticMessage severity="info" summary="DICA"
-				detail="Clique em um dos elementos do diagrama para obter a sentença e a cena associadas."
+			<p:staticMessage severity="info" summary="#{languageBean.labelDica}"
+				detail="#{languageBean.labelDicaBPMN}"
 				style="margin-bottom: 20px;" />
 			<p:messages showDetail="true" closable="true" />
-			<p:fieldset legend="Importar diagrama BPMN">
+			<p:fieldset legend="#{languageBean.captionBPMN}">
 				<p:fileUpload value="#{sentencaBean.arquivoBpmn}" mode="simple"
-					skinSimple="true" label="Selecione..." />
+					skinSimple="true" label="#{languageBean.labelBtnSelecionar}" />
 				<p:inputText value="#{sentencaBean.arquivo.conteudoXml}"
 					type="hidden" styleClass="conteudoXml" />
 				<p:inputText value="#{sentencaBean.sentenca.elementoBpmnId}"
@@ -48,50 +48,49 @@
 					actionListener="#{sentencaBean.carregarSentencaPeloElementoBpmn}"
 					style="display: none;" />
 				<br />
-				<p:commandButton value="Enviar" ajax="false"
+				<p:commandButton value="#{languageBean.labelEnviar}" ajax="false"
 					action="#{sentencaBean.uploadBPMN()}"
 					rendered="#{sentencaBean.listaDeSentencasDoProjeto.size()==0}" />
-				<p:commandButton value="Enviar" type="button"
+				<p:commandButton value="#{languageBean.labelEnviar}" type="button"
 					onclick="PF('confirmacao').show();"
 					rendered="#{sentencaBean.listaDeSentencasDoProjeto.size()>0}" />
-				<p:dialog header="Confirmação" showEffect="fade" hideEffect="fade"
+				<p:dialog header="#{languageBean.labelConfirmacao}" showEffect="fade" hideEffect="fade"
 					widgetVar="confirmacao" modal="true" width="400">
 					<p:outputPanel>
-						<h4>Confirma a substituição do diagrama?</h4>
-						<p>Todas as informações registradas em relação ao modelo
-							anterior serão perdidas.</p>
+						<h4><h:outputText value="#{languageBean.bpmnPerguntaConfirmacao}" /></h4>
+						<p><h:outputText value="#{languageBean.bpmnMsgConfirmacao}" /></p>
 					</p:outputPanel>
 					<h:panelGrid columns="2"
 						style="width: 100%; text-align: center; padding-top: 10px;">
-						<p:commandButton value="Sim" icon="pi pi-check" ajax="false"
+						<p:commandButton value="#{languageBean.labelSim}" icon="pi pi-check" ajax="false"
 							action="#{sentencaBean.uploadBPMN()}" />
-						<p:commandButton value="Não" type="button" icon="pi pi-times"
+						<p:commandButton value="#{languageBean.labelNao}" type="button" icon="pi pi-times"
 							onclick="PF('confirmacao').hide();" />
 					</h:panelGrid>
 				</p:dialog>
 
 				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-					<p:commandButton value="Sim" icon="pi pi-check"
+					<p:commandButton value="#{languageBean.labelSim}" icon="pi pi-check"
 						styleClass="ui-confirmdialog-yes" ajax="false"
 						action="#{sentencaBean.uploadBPMN()}" />
-					<p:commandButton value="Não" type="button" icon="pi pi-times"
+					<p:commandButton value="#{languageBean.labelNao}" type="button" icon="pi pi-times"
 						styleClass="ui-confirmdialog-no" />
 				</p:confirmDialog>
 
 				<p:dialog id="modalDetalhesElementoBpmn"
-					header="Detalhes do Elemento - #{sentencaBean.sentenca.tipoDeElementoBPMN}"
+					header="#{languageBean.bpmnDetalhesElemento} - #{sentencaBean.sentenca.tipoDeElementoBPMN}"
 					modal="true" widgetVar="modalDetalhesElementoBpmn">
 
-					<p:fieldset legend="Sentença">
+					<p:fieldset legend="#{languageBean.menuSentencas}">
 						<h:panelGrid columns="2">
-							<h:outputText value="Sentença completa: "
+							<h:outputText value="#{languageBean.bpmnSentencaCompleta}: "
 								style="font-weight: bold;" />
 							<h:outputText
 								value="#{sentencaBean.sentenca.getSentencaCompleta()}" />
 						</h:panelGrid>
 					</p:fieldset>
 
-					<p:fieldset legend="Cena">
+					<p:fieldset legend="#{languageBean.menuCenas}">
 						<h:outputText rendered="#{sentencaBean.sentenca.naoVaiTerCena}"
 							value="Não terá cena!" style="color: red;" />
 
@@ -99,22 +98,22 @@
 							rendered="#{!sentencaBean.sentenca.naoVaiTerCena}">
 
 							<h:outputText rendered="#{sentencaBean.sentenca.cena != null}"
-								style="font-weight: bold;" value="Título: " />
+								style="font-weight: bold;" value="#{languageBean.labelTitulo}: " />
 							<h:outputText rendered="#{sentencaBean.sentenca.cena != null}"
 								value="#{sentencaBean.sentenca.cena.titulo}" />
 
 							<h:outputText rendered="#{sentencaBean.sentenca.cena != null}"
-								style="font-weight: bold;" value="Descrição breve: " />
+								style="font-weight: bold;" value="#{languageBean.labelDescricaoCurta}: " />
 							<h:outputText rendered="#{sentencaBean.sentenca.cena != null}"
 								value="#{sentencaBean.sentenca.cena.descricaoBreve}" />
 
 							<h:outputText rendered="#{sentencaBean.personagens.size() > 0}"
-								style="font-weight: bold;" value="Personagens: " />
+								style="font-weight: bold;" value="#{languageBean.labelPersonagens}: " />
 							<p:dataList value="#{sentencaBean.personagens}" var="personagem"
 								rendered="#{sentencaBean.personagens.size() > 0}">
 								#{personagem.nome} (#{personagem.funcao})
 							</p:dataList>
-							<p:link outcome="comporCena" value="Editar cena">
+							<p:link outcome="comporCena" value="#{languageBean.btnEditarCena}">
 								<f:param name="cenaId" value="#{sentencaBean.sentenca.cena.id}" />
 							</p:link>
 

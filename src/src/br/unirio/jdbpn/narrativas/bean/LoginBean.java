@@ -91,8 +91,10 @@ public class LoginBean implements Serializable {
 		return "login?faces-redirect=true";
 	}
 
-	public boolean isNenhumUsuario() {
+	public boolean isNenhumUsuario() {		
 		return new DAO<Usuario>(Usuario.class).listaTodos().size() == 0;
 	}
+	
+	
 
 }

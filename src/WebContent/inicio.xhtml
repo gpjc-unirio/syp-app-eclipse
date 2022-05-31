@@ -8,7 +8,7 @@
 <ui:composition template="_template.xhtml">
 	<ui:define name="conteudo">
 		<p:outputPanel>
-			<h3>Meus Projetos</h3>
+			<h3><h:outputText value="#{languageBean.labelMeusProjetos}" /></h3>
 		</p:outputPanel>
 		<div class="card">
 			<h:form id="form">
@@ -32,13 +32,13 @@
 									<h:outputText value="Status:" />
 									<h:outputText value="#{projeto.status}"
 										style="font-weight: bold; color: red;" />
-									<h:outputText value="Descrição: " />
+									<h:outputText value="#{languageBean.labelDescription}" />
 									<h:outputText value="#{projeto.descricao}"
 										style="font-style: italic" />
 								</h:panelGrid>
 							</p:outputPanel>
 
-							<p:button value="Gerenciar" icon="pi pi-fw pi-cog"
+							<p:button value="#{languageBean.labelBtnGerenciar}" icon="pi pi-fw pi-cog"
 								href="gerenciarProjeto.xhtml?projetoId=#{projeto.id}"
 								style="margin:0 auto;" />
 

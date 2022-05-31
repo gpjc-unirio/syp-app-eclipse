@@ -26,24 +26,24 @@
 				<p:menuitem value="Meus Projetos" url="inicio.xhtml" />
 				<p:menuitem value="#{roteiroBean.projeto.nome}"
 					url="gerenciarProjeto.xhtml?projetoId=#{roteiroBean.projeto.id}" />
-				<p:menuitem value="Gerenciar Projeto"
+				<p:menuitem value="#{languageBean.labelManage}"
 					url="gerenciarProjeto.xhtml?projetoId=#{roteiroBean.projeto.id}" />
-				<p:menuitem value="Roteiro"
+				<p:menuitem value="#{languageBean.roteiroLabel}"
 					url="gerarRoteiro.xhtml?projetoId=#{roteiroBean.projeto.id}" />
-				<p:menuitem value="Texto" url="#" />
+				<p:menuitem value="#{languageBean.roteiroLblTexto}" url="#" />
 			</p:breadCrumb>
 			<p:outputPanel>
 				<h3>
-					Roteiro ::
+					<h:outputText value="#{languageBean.roteiroLabel}" /> ::
 					<h:outputText value="#{roteiroBean.projeto.nome}" />
 				</h3>
 			</p:outputPanel>
 			<h:panelGrid columns="2">
-				<p:commandButton value="Imprimir Roteiro" icon="pi pi-print"
+				<p:commandButton value="#{languageBean.roteiroBtnImprimir}" icon="pi pi-print"
 					style="display:block; margin-bottom: 20px;">
 					<p:printer target="roteiro" />
 				</p:commandButton>
-				<p:commandButton value="Exportar como PDF" icon="pi pi-file-pdf"
+				<p:commandButton value="#{languageBean.roteiroBtnPDF}" icon="pi pi-file-pdf"
 					style="display:block; margin-bottom: 20px;" disabled="true">
 					<p:dataExporter type="pdf" target="roteiro" fileName="roteiro" />
 				</p:commandButton>

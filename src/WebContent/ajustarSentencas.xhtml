@@ -26,15 +26,15 @@
 				<p:menuitem value="Meus Projetos" url="inicio.xhtml" />
 				<p:menuitem value="#{sentencaBean.projeto.nome}"
 					url="gerenciarProjeto.xhtml?projetoId=#{sentencaBean.projeto.id}" />
-				<p:menuitem value="Gerenciar Projeto"
+				<p:menuitem value="#{languageBean.labelManage}"
 					url="gerenciarProjeto.xhtml?projetoId=#{sentencaBean.projeto.id}" />
-				<p:menuitem value="Ajustar Sentenças" url="#" />
+				<p:menuitem value="#{languageBean.sentencaLblAjuste}" url="#" />
 			</p:breadCrumb>
 			<p:outputPanel style="margin-top: 10px;">
-				<h3>Sentenças Cadastradas:</h3>
+				<h3><h:outputText value="#{languageBean.sentencaLblCadastrada}" />:</h3>
 			</p:outputPanel>
-			<p:staticMessage severity="info" summary="DICA"
-				detail="Clique na sentença abaixo para alterar."
+			<p:staticMessage severity="info" summary="#{languageBean.labelDica}"
+				detail="#{languageBean.sentencaDica}"
 				style="margin-bottom: 20px;" />
 
 			<p:dataTable
@@ -44,34 +44,34 @@
 				<p:column headerText="Id">
 					<h:outputText value="#{sentenca.numero}" />
 				</p:column>
-				<p:column headerText="Sentença">
+				<p:column headerText="#{languageBean.sentencaClmSentenca}">
 					<p:commandLink action="#{sentencaBean.carregarSentenca(sentenca)}"
 						update="@form">
 						<h:outputText value="#{sentenca.getSentencaCompleta()}" />
 					</p:commandLink>
 				</p:column>
-				<p:column headerText="Tipo BPMN">
+				<p:column headerText="#{languageBean.sentencaClmBPMN}">
 					<h:outputText value="#{sentenca.tipoDeElementoBPMN}" />
 				</p:column>
-				<p:column headerText="Próximas">
+				<p:column headerText="#{languageBean.sentencaClmProxima}">
 					<h:outputText
 						value="#{sentenca.getTextoListaDasProximasSentencas()}" />
 				</p:column>
 			</p:dataTable>
 
-			<p:dialog header="Ajuste de Sentença" modal="true"
+			<p:dialog header="#{languageBean.sentencaLblAjuste}" modal="true"
 				widgetVar="modalAjusteDeSentenca" showEffect="fade"
 				hideEffect="fade" id="modal">
 				<p:panelGrid columns="2" layout="flex">
-					<h:outputText value="Sujeito" />
+					<h:outputText value="#{languageBean.sentencaSujeito}" />
 					<p:inputText value="#{sentencaBean.sentenca.sujeito}" />
-					<h:outputText value="Verbo" />
+					<h:outputText value="#{languageBean.sentencaVerbo}" />
 					<p:inputText value="#{sentencaBean.sentenca.verbo}" />
-					<h:outputText value="Complementos" />
+					<h:outputText value="#{languageBean.sentencaComplementos}" />
 					<p:inputTextarea value="#{sentencaBean.sentenca.complementos}"
 						rows="5" cols="50" />
 					<p:commandButton action="#{sentencaBean.atualizarSentenca()}"
-						value="Atualizar" update="@form" />
+						value="#{languageBean.sentencaBtnAtualizar}" update="@form" />
 				</p:panelGrid>
 			</p:dialog>
 

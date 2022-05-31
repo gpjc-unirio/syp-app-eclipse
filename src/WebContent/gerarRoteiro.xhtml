@@ -22,30 +22,30 @@
 				<p:menuitem value="Meus Projetos" url="inicio.xhtml" />
 				<p:menuitem value="#{roteiroBean.projeto.nome}"
 					url="gerenciarProjeto.xhtml?projetoId=#{roteiroBean.projeto.id}" />
-				<p:menuitem value="Gerenciar Projeto"
+				<p:menuitem value="#{languageBean.labelManage}"
 					url="gerenciarProjeto.xhtml?projetoId=#{roteiroBean.projeto.id}" />
-				<p:menuitem value="Roteiro" url="#" />
+				<p:menuitem value="#{languageBean.roteiroLabel}" url="#" />
 			</p:breadCrumb>
 			<p:outputPanel>
 				<h3>
-					Roteiro ::
+					<h:outputText value="#{languageBean.roteiroLabel}"/> ::
 					<h:outputText value="#{roteiroBean.projeto.nome}" />
 				</h3>
 			</p:outputPanel>
-			<p:fieldset legend="Configurações do Roteiro">
+			<p:fieldset legend="#{languageBean.roteiroConfiguracao}">
 				<h:panelGrid columns="2">
-					<p:outputLabel for="escopo" value="Escopo " />
+					<p:outputLabel for="escopo" value="#{languageBean.roteiroEscopo} " />
 					<p:selectOneRadio id="escopo" value="#{roteiroBean.escopo}">
-						<f:selectItem itemLabel="Sentenças" itemValue="Sentenças" />
-						<f:selectItem itemLabel="Cenas" itemValue="Cenas"
+						<f:selectItem itemLabel="#{languageBean.menuSentencas}" itemValue="Sentenças" />
+						<f:selectItem itemLabel="#{languageBean.menuCenas}" itemValue="Cenas"
 							itemDisabled="#{!roteiroBean.isCenasGeradas()}" />
 					</p:selectOneRadio>
 
-					<p:commandButton value="Gerar Roteiro em Ink" icon="pi pi-download"
+					<p:commandButton value="#{languageBean.roteiroBtnInk}" icon="pi pi-download"
 						action="#{roteiroBean.gerarArquivoInk}" ajax="false"
 						style="display:block; margin-bottom: 20px;" />
 
-					<p:commandButton value="Gerar Roteiro em Texto" icon="pi pi-file"
+					<p:commandButton value="#{languageBean.roteiroBtnTexto}" icon="pi pi-file"
 						action="#{roteiroBean.gerarTexto}" update="@form" process="@form"
 						style="display:block; margin-bottom: 20px;" />
 				</h:panelGrid>

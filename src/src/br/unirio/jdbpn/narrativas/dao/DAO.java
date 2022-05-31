@@ -68,5 +68,4 @@ public class DAO<T> {
 		em.close();
 		return instancia;
 	}
-
 }

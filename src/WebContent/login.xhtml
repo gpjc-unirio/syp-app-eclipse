@@ -22,13 +22,13 @@
 					</p:inputText>
 					<p:message for="email" id="messageEmail" />
 
-					<p:outputLabel value="Senha: " for="senha" />
+					<p:outputLabel value="#{languageBean.labelSenha}: " for="senha" />
 					<p:password id="senha" value="#{loginBean.usuario.senhaUsuario}"
 						required="true" requiredMessage="Preenchimento obrigatório">
 					</p:password>
 					<p:message for="senha" id="messageSenha" />
 
-					<p:commandButton value="Efetuar login"
+					<p:commandButton value="#{languageBean.labelBtnLogin}"
 						action="#{loginBean.efetuarLogin}" update="@form" process="@form" />
 				</h:panelGrid>
 			</p:fieldset>

@@ -20,11 +20,11 @@
 			<p:breadCrumb>
 				<p:menuitem value="Meus Projetos" url="inicio.xhtml" />
 				<p:menuitem value="#{projetoBean.projeto.nome}" url="#" />
-				<p:menuitem value="Gerenciar Projeto" url="#" />
+				<p:menuitem value="#{languageBean.labelManage}" url="#" />
 			</p:breadCrumb>
 			<p:outputPanel>
 				<h3>
-					Gerenciar Projeto ::
+					<h:outputText value="#{languageBean.labelManage}" /> ::
 					<h:outputText value="#{projetoBean.projeto.nome}" />
 				</h3>
 			</p:outputPanel>
@@ -43,7 +43,7 @@
 							href="importarBPMN.xhtml?projetoId=#{projetoBean.projeto.id}">
 							<i class="pi pi-fw pi-upload" style="font-size: 3em"></i>
 							<br />
-							<h:outputText value="Diagrama BPMN" />
+							<h:outputText value="#{languageBean.menuBPMN}" />
 						</p:link>
 					</h:panelGrid>
 				</p:panel>
@@ -54,7 +54,7 @@
 							href="ajustarSentencas.xhtml?projetoId=#{projetoBean.projeto.id}">
 							<i class="pi pi-fw pi-pencil" style="font-size: 3em"></i>
 							<br />
-							<h:outputText value="Sentenças" />
+							<h:outputText value="#{languageBean.menuSentencas}" />
 						</p:link>
 					</h:panelGrid>
 				</p:panel>
@@ -65,7 +65,7 @@
 							href="adicionarAutor.xhtml?projetoId=#{projetoBean.projeto.id}">
 							<i class="pi pi-fw pi-users" style="font-size: 3em"></i>
 							<br />
-							<h:outputText value="Autores do projeto" />
+							<h:outputText value="#{languageBean.menuAutores}" />
 						</p:link>
 					</h:panelGrid>
 				</p:panel>
@@ -76,7 +76,7 @@
 							href="cadastrarPersonagem.xhtml?projetoId=#{projetoBean.projeto.id}">
 							<i class="pi pi-fw pi-user-edit" style="font-size: 3em"></i>
 							<br />
-							<h:outputText value="Personagens" />
+							<h:outputText value="#{languageBean.menuPersonagens}" />
 						</p:link>
 					</h:panelGrid>
 				</p:panel>
@@ -87,7 +87,7 @@
 							href="escolherSentencaParaCena.xhtml?projetoId=#{projetoBean.projeto.id}">
 							<i class="pi pi-fw pi-id-card" style="font-size: 3em"></i>
 							<br />
-							<h:outputText value="Cenas" />
+							<h:outputText value="#{languageBean.menuCenas}" />
 						</p:link>
 					</h:panelGrid>
 				</p:panel>
@@ -98,7 +98,7 @@
 							href="gerarRoteiro.xhtml?projetoId=#{projetoBean.projeto.id}">
 							<i class="pi pi-fw pi-file-o" style="font-size: 3em"></i>
 							<br />
-							<h:outputText value="Roteiro" />
+							<h:outputText value="#{languageBean.menuRoteiro}" />
 						</p:link>
 					</h:panelGrid>
 				</p:panel>

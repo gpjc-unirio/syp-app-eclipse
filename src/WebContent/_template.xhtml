@@ -6,7 +6,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Aplicativo de Suporte ao Método SYP</title>
+	<title><h:outputText value="#{languageBean.titulo}" /></title>	
 
 	<!-- Icons -->
 	<link rel="apple-touch-icon" sizes="180x180"
@@ -34,27 +34,34 @@
 			<h:graphicImage library="img" name="syp.png" height="75%" width="75%"
 				style="margin-bottom: 10px" />
 			<p:outputPanel style="font-style: italic">
-				<h2>Aplicativo de Suporte ao Método SYP</h2>
+				<h2><h:outputText value="#{languageBean.titulo}" /></h2>
 			</p:outputPanel>
 		</h:panelGrid>
 		<h:form rendered="#{usuarioLogado != null}">
 			<p:menubar>
-				<p:menuitem value="Início" icon="pi pi-fw pi-home"
-					action="inicio?faces-redirect=true" />
-				<p:menuitem value="Novo Projeto" icon="pi pi-fw pi-file"
+				<p:menuitem value="#{languageBean.menuArquivo}" icon="pi pi-fw pi-home"
+					action="inicio?faces-redirect=true" update="@none"/>
+				<p:menuitem value="#{languageBean.menuNovoProjeto}" icon="pi pi-fw pi-file"
 					action="novoProjeto?faces-redirect=true" />
-				<p:submenu label="Administração"
+				<p:submenu label="#{languageBean.menuAdministration}"
 					rendered="#{usuarioLogado.isUsuarioAdministrador()}"
 					icon="pi pi-fw pi-user">
-					<p:menuitem value="Novo Usuário"
+					<p:menuitem value="#{languageBean.menuNovoUsuario}"
 						action="novoUsuario?faces-redirect=true" />
-					<p:menuitem value="Modificar Usuário"
+					<p:menuitem value="#{languageBean.menuAlterarUsuario}"
 						action="modificarUsuario?faces-redirect=true" />
 				</p:submenu>
-				<p:menuitem value="Ajuda" icon="pi pi-fw pi-question-circle"
+				<p:submenu label="#{languageBean.menuIdioma}"					
+					icon="pi pi-fw pi-globe">
+					<p:menuitem value="#{languageBean.menuPortugues}"
+						action="#{languageBean.mudarIdioma(1)}" />
+					<p:menuitem value="#{languageBean.menuIngles}"
+						action="#{languageBean.mudarIdioma(2)}" />
+				</p:submenu>
+				<p:menuitem value="#{languageBean.menuAjuda}" icon="pi pi-fw pi-question-circle"
 					rendered="#{!usuarioLogado.isUsuarioSemSuporte()}"
 					url="ajuda.xhtml?topico=introducao" target="_blank" ajax="false" />
-				<p:menuitem value="Sobre" icon="pi pi-info-circle" url="sobre.xhtml"
+				<p:menuitem value="#{languageBean.menuSobre}" icon="pi pi-info-circle" url="sobre.xhtml"
 					ajax="false" />
 
 				<f:facet name="options">
@@ -72,10 +79,9 @@
 	</div>
 	<div id="rodape">
 		<p:outputPanel style="margin-bottom: 50px">
-			<p>Copyright &copy;2022 JoCCom - Grupo de Pesquisa em Jogos
-				Complexos</p>
-			<p>Universidade Federal do Estado do Rio de Janeiro - UNIRIO</p>
-			<p>Programa de Pós Graduação em Informática - PPGI</p>
+			<p>Copyright &copy;2022 JoCCom - <h:outputText value="#{languageBean.labelJoccon}" /></p>
+			<p><h:outputText value="#{languageBean.labelUnirio}" /></p>
+			<p><h:outputText value="#{languageBean.labelPpgi}" /></p>
 			<p>Versão 0.01</p>
 		</p:outputPanel>
 	</div>
