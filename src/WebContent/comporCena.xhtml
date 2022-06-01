@@ -35,22 +35,22 @@
 				<p:menuitem value="Meus Projetos" url="inicio.xhtml" />
 				<p:menuitem value="#{cenaBean.projeto.nome}"
 					url="gerenciarProjeto.xhtml?projetoId=#{cenaBean.projeto.id}" />
-				<p:menuitem value="Gerenciar Projeto"
+				<p:menuitem value="#{languageBean.labelManage}"
 					url="gerenciarProjeto.xhtml?projetoId=#{cenaBean.projeto.id}" />
-				<p:menuitem value="Compor Cenas"
+				<p:menuitem value="#{languageBean.cenaCompor}"
 					url="escolherSentencaParaCena.xhtml?projetoId=#{cenaBean.projeto.id}" />
 				<p:menuitem value="#{cenaBean.cena.titulo}" url="#" />
 			</p:breadCrumb>
 
 			<p:outputPanel>
 				<h3>
-					Compor Cena do Projeto ::
+					<h:outputText value="#{languageBean.cenaCompor}"/> ::
 					<h:outputText value="#{cenaBean.projeto.nome}" />
 				</h3>
 			</p:outputPanel>
 
 			<h:panelGrid columns="2" rendered="#{cenaBean.sentencaDaCena.id > 0}">
-				<p:outputLabel for="sentenca" value="Sentença: " />
+				<p:outputLabel for="sentenca" value="#{languageBean.sentencaClmSentenca}: " />
 				<p:inputText disabled="true" id="sentenca" size="80"
 					value="#{cenaBean.sentencaDaCena.getSentencaCompleta()}" />
 			</h:panelGrid>
@@ -58,35 +58,35 @@
 			<p:outputPanel>
 				<h3>
 					<h:outputText rendered="#{param.cenaId != null}"
-						value="Editando..." style="color: red" />
+						value="#{languageBean.personagemLblEditando}" style="color: red" />
 					<h:outputText rendered="#{param.cenaAnteriorId != null}"
-						value="Cena adicional" style="color: red" />
+						value="#{languageBean.cenaAdicional}" style="color: red" />
 					<h:outputText rendered="#{param.cenaPosteriorId != null}"
-						value="Cena adicional" style="color: red" />
+						value="#{languageBean.cenaAdicional}" style="color: red" />
 				</h3>
 			</p:outputPanel>
 
-			<p:fieldset legend="Cena Anterior"
+			<p:fieldset legend="#{languageBean.cenaAnterior}"
 				rendered="#{cenaBean.cenaAnterior.id > 0}">
 				<h:panelGrid columns="2">
-					<p:outputLabel for="cenaAnterior" value="Título: " />
+					<p:outputLabel for="cenaAnterior" value="#{languageBean.labelTitulo}: " />
 					<p:inputTextarea disabled="true" id="cenaAnterior" rows="3"
 						cols="50" value="#{cenaBean.cenaAnterior.titulo}" />
 				</h:panelGrid>
 			</p:fieldset>
 
-			<p:fieldset legend="Cena Posterior"
+			<p:fieldset legend="#{languageBean.cenaPosterior}"
 				rendered="#{cenaBean.cenaPosterior.id > 0}">
 				<h:panelGrid columns="2">
-					<p:outputLabel for="cenaPosterior" value="Título: " />
+					<p:outputLabel for="cenaPosterior" value="#{languageBean.labelTitulo}: " />
 					<p:inputTextarea disabled="true" id="cenaPosterior" rows="3"
 						cols="50" value="#{cenaBean.cenaPosterior.titulo}" />
 				</h:panelGrid>
 			</p:fieldset>
 
-			<p:fieldset legend="Dados da Cena">
+			<p:fieldset legend="#{languageBean.cenaDados}">
 				<h:panelGrid columns="4">
-					<p:outputLabel for="titulo" value="Título: " />
+					<p:outputLabel for="titulo" value="#{languageBean.labelTitulo}: " />
 					<p:inputTextarea id="titulo" rows="3" cols="50"
 						value="#{cenaBean.cena.titulo}" required="true" />
 					<h:outputLink id="helpTitulo" value="#">
@@ -95,7 +95,7 @@
 					<p:tooltip for="helpTitulo" value="Título para salvar a cena."
 						position="top" />
 
-					<p:outputLabel for="descricaoBreve" value="Descrição breve: " />
+					<p:outputLabel for="descricaoBreve" value="#{languageBean.labelDescricaoCurta}: " />
 					<p:inputTextarea id="descricaoBreve" rows="10" cols="50"
 						value="#{cenaBean.cena.descricaoBreve}" />
 					<h:outputLink id="helpDescricaoBreve" value="#">
@@ -105,7 +105,7 @@
 						value="Descrição resumida do que acontece durante a cena, na sequência dos eventos."
 						position="top" />
 
-					<p:outputLabel for="local" value="Local: " />
+					<p:outputLabel for="local" value="#{languageBean.cenaLocal}: " />
 					<p:inputTextarea id="local" rows="3" cols="50"
 						value="#{cenaBean.cena.local}" />
 					<h:outputLink id="helpLocal" value="#">
@@ -114,7 +114,7 @@
 					<p:tooltip for="helpLocal"
 						value="Nome do local onde a cena ocorre." position="top" />
 
-					<p:outputLabel for="tipoDeLocal" value="Tipo de local: " />
+					<p:outputLabel for="tipoDeLocal" value="#{languageBean.cenaTipoLocal}: " />
 					<p:selectOneRadio id="tipoDeLocal"
 						value="#{cenaBean.cena.tipoDeLocal}">
 						<f:selectItems value="#{cenaBean.tiposDeLocal}" />
@@ -126,7 +126,7 @@
 						value="Indicação se a cena ocorre em um cenário interno ou em ambiente externo."
 						position="top" />
 
-					<p:outputLabel for="tempo" value="Tempo: " />
+					<p:outputLabel for="tempo" value="#{languageBean.cenaTempo}: " />
 					<p:inputTextarea id="tempo" rows="3" cols="50"
 						value="#{cenaBean.cena.tempo}" />
 					<h:outputLink id="helpTempo" value="#">
@@ -136,14 +136,14 @@
 						value="Informação sobre quando a cena ocorre, em que momento ela acontece."
 						position="top" />
 
-					<p:outputLabel for="personagens" value="Personagens: " />
+					<p:outputLabel for="personagens" value="#{languageBean.labelPersonagens}: " />
 					<p:pickList id="personagens"
 						converter="personagemPickListConverter"
 						value="#{cenaBean.personagensDoProjeto}" var="personagem"
 						itemLabel="#{personagem.nome}" itemValue="#{personagem}">
 
-						<f:facet name="sourceCaption">Disponíveis</f:facet>
-						<f:facet name="targetCaption">Selecionados</f:facet>
+						<f:facet name="sourceCaption"><h:outputText value="#{languageBean.cenaPersonagemDisponivel}"/></f:facet>
+						<f:facet name="targetCaption"><h:outputText value="#{languageBean.cenaPersonagemSelecionado}"/></f:facet>
 
 					</p:pickList>
 					<h:outputLink id="helpPersonagens" value="#">
@@ -153,7 +153,7 @@
 						value="Seleção dos personagens que participam da cena."
 						position="top" />
 
-					<p:outputLabel for="gatilhos" value="Gatilhos: " />
+					<p:outputLabel for="gatilhos" value="#{languageBean.cenaGatilhos}: " />
 					<p:inputTextarea id="gatilhos" rows="3" cols="50"
 						value="#{cenaBean.cena.gatilhos}" />
 					<h:outputLink id="helpGatilhos" value="#">
@@ -163,7 +163,7 @@
 						value="Descrição da situação ou situações que existem na cena e que provocam desvio do fluxo normal da história (informe quais são as cenas que os gatilhos disparam)."
 						position="top" />
 
-					<p:outputLabel for="resultados" value="Resultados: " />
+					<p:outputLabel for="resultados" value="#{languageBean.cenaResultados}: " />
 					<p:inputTextarea id="resultados" rows="3" cols="50"
 						value="#{cenaBean.cena.resultados}" />
 					<h:outputLink id="helpResultados" value="#">
@@ -174,7 +174,7 @@
 						position="top" />
 
 					<p:link disabled="#{cenaBean.cena.id == 0}"
-						value="+ Adicionar diálogos" outcome="inserirDialogo">
+						value="#{languageBean.cenaAddDialogo}" outcome="inserirDialogo">
 						<f:param name="cenaId" value="#{cenaBean.cena.id}" />
 					</p:link>
 					<h:outputText />
@@ -186,7 +186,7 @@
 				</h:panelGrid>
 			</p:fieldset>
 
-			<p:commandButton value="Cadastrar cena" icon="pi pi-fw pi-save"
+			<p:commandButton value="#{languageBean.cenaBtnGravar}" icon="pi pi-fw pi-save"
 				update="@form" process="@form" action="#{cenaBean.cadastrar}"
 				style="margin-top: 40px;" />
 		</h:form>

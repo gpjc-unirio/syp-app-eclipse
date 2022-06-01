@@ -80,9 +80,432 @@ public class LanguageBean implements Serializable{
 	private String menuIdioma = "Language";
 	private String menuPortugues = "Portuguese";
 	private String menuIngles = "English";
+	private String personagemCadastrar = "Project Characters";
+	private String personagemEditar = "Edit Character";
+	private String personagemCasdastrados = "Characters";
+	private String personagemBtnEditar = "Edit";
+	private String personagemLblEditando = "Editing...";
+	private String personagemNome = "Name";
+	private String personagemFuncao = "Function";
+	private String personagemArquetipo = "Archetype";
+	private String personagemPhysic = "Physical traits";
+	private String personagemPhysico = "Physiological traits";
+	private String personagemObjetivo = "Goals";
+	private String personagemBio = "Biography";
+	private String personagemJornada = "Jorney";
+	private String personagemBtnGravar = "Record";
+	private String cenaCriarEditarApagar = "Create/Edit/Delete";
+	private String cenaAdicional = "Additional Scene";
+	private String cenaBtnAntes = "Before";
+	private String cenaBtnDepois = "After";
+	private String cenaConfirmacao = "Confirmation";
+	private String cenaMsgConfirmacao = "Do not you will create the scene for this sentence? It is not possible to revert this change.";
+	private String cenaCompor = "Scene Desing";
+	private String cenaAnterior = "Previous Scene";
+	private String cenaPosterior = "Post Scene";
+	private String cenaDados = "Scene Data";
+	private String cenaLocal = "Scene Place";
+	private String cenaTipoLocal = "Place Type";
+	private String cenaTempo = "Time";
+	private String cenaPersonagemDisponivel = "Available";
+	private String cenaPersonagemSelecionado = "Selected";
+	private String cenaGatilhos = "Triggers";
+	private String cenaResultados = "Outcomes";
+	private String cenaAddDialogo = "+ Add Dialogs";
+	private String cenaBtnGravar = "Record Scene";
+	private String dialogoCena = "Dialogs";
+	private String dialogoInserir = "Add New Dialog";
+	private String dialogoIntroducao = "Introduction";
+	private String dialogoPersonagem = "Character";
+	private String dialogoObs = "Observation";
+	private String dialogoFala = "Speach";
+	private String dialogoNovo = "New Dialog";
+	private String usuarioLabel = "Users";
+	private String usuarioLabelNovo = "New User";
+	private String usuarioNome = "User Name";
+	private String usuarioPerfil = "Profile";
+	private String usuarioBtnCadastrar = "Save";
+	private String usuarioBtnLogin = "Log In";
+	private String usuarioBtnAtualizar = "Update";
+	
+	
+	
+	public String getUsuarioLabel() {
+		return usuarioLabel;
+	}
 
-	
-	
+	public void setUsuarioLabel(String usuarioLabel) {
+		this.usuarioLabel = usuarioLabel;
+	}
+
+	public String getUsuarioLabelNovo() {
+		return usuarioLabelNovo;
+	}
+
+	public void setUsuarioLabelNovo(String usuarioLabelNovo) {
+		this.usuarioLabelNovo = usuarioLabelNovo;
+	}
+
+	public String getUsuarioNome() {
+		return usuarioNome;
+	}
+
+	public void setUsuarioNome(String usuarioNome) {
+		this.usuarioNome = usuarioNome;
+	}
+
+	public String getUsuarioPerfil() {
+		return usuarioPerfil;
+	}
+
+	public void setUsuarioPerfil(String usuarioPerfil) {
+		this.usuarioPerfil = usuarioPerfil;
+	}
+
+	public String getUsuarioBtnCadastrar() {
+		return usuarioBtnCadastrar;
+	}
+
+	public void setUsuarioBtnCadastrar(String usuarioBtnCadastrar) {
+		this.usuarioBtnCadastrar = usuarioBtnCadastrar;
+	}
+
+	public String getUsuarioBtnLogin() {
+		return usuarioBtnLogin;
+	}
+
+	public void setUsuarioBtnLogin(String usuarioBtnLogin) {
+		this.usuarioBtnLogin = usuarioBtnLogin;
+	}
+
+	public String getUsuarioBtnAtualizar() {
+		return usuarioBtnAtualizar;
+	}
+
+	public void setUsuarioBtnAtualizar(String usuarioBtnAtualizar) {
+		this.usuarioBtnAtualizar = usuarioBtnAtualizar;
+	}
+
+	public String getDialogoCena() {
+		return dialogoCena;
+	}
+
+	public void setDialogoCena(String dialogoCena) {
+		this.dialogoCena = dialogoCena;
+	}
+
+	public String getDialogoInserir() {
+		return dialogoInserir;
+	}
+
+	public void setDialogoInserir(String dialogoInserir) {
+		this.dialogoInserir = dialogoInserir;
+	}
+
+	public String getDialogoIntroducao() {
+		return dialogoIntroducao;
+	}
+
+	public void setDialogoIntroducao(String dialogoIntroducao) {
+		this.dialogoIntroducao = dialogoIntroducao;
+	}
+
+	public String getDialogoPersonagem() {
+		return dialogoPersonagem;
+	}
+
+	public void setDialogoPersonagem(String dialogoPersonagem) {
+		this.dialogoPersonagem = dialogoPersonagem;
+	}
+
+	public String getDialogoObs() {
+		return dialogoObs;
+	}
+
+	public void setDialogoObs(String dialogoObs) {
+		this.dialogoObs = dialogoObs;
+	}
+
+	public String getDialogoFala() {
+		return dialogoFala;
+	}
+
+	public void setDialogoFala(String dialogoFala) {
+		this.dialogoFala = dialogoFala;
+	}
+
+	public String getDialogoNovo() {
+		return dialogoNovo;
+	}
+
+	public void setDialogoNovo(String dialogoNovo) {
+		this.dialogoNovo = dialogoNovo;
+	}
+
+	public String getCenaCompor() {
+		return cenaCompor;
+	}
+
+	public void setCenaCompor(String cenaCompor) {
+		this.cenaCompor = cenaCompor;
+	}
+
+	public String getCenaAnterior() {
+		return cenaAnterior;
+	}
+
+	public void setCenaAnterior(String cenaAnterior) {
+		this.cenaAnterior = cenaAnterior;
+	}
+
+	public String getCenaPosterior() {
+		return cenaPosterior;
+	}
+
+	public void setCenaPosterior(String cenaPosterior) {
+		this.cenaPosterior = cenaPosterior;
+	}
+
+	public String getCenaDados() {
+		return cenaDados;
+	}
+
+	public void setCenaDados(String cenaDados) {
+		this.cenaDados = cenaDados;
+	}
+
+	public String getCenaLocal() {
+		return cenaLocal;
+	}
+
+	public void setCenaLocal(String cenaLocal) {
+		this.cenaLocal = cenaLocal;
+	}
+
+	public String getCenaTipoLocal() {
+		return cenaTipoLocal;
+	}
+
+	public void setCenaTipoLocal(String cenaTipoLocal) {
+		this.cenaTipoLocal = cenaTipoLocal;
+	}
+
+	public String getCenaTempo() {
+		return cenaTempo;
+	}
+
+	public void setCenaTempo(String cenaTempo) {
+		this.cenaTempo = cenaTempo;
+	}
+
+	public String getCenaPersonagemDisponivel() {
+		return cenaPersonagemDisponivel;
+	}
+
+	public void setCenaPersonagemDisponivel(String cenaPersonagemDisponivel) {
+		this.cenaPersonagemDisponivel = cenaPersonagemDisponivel;
+	}
+
+	public String getCenaPersonagemSelecionado() {
+		return cenaPersonagemSelecionado;
+	}
+
+	public void setCenaPersonagemSelecionado(String cenaPersonagemSelecionado) {
+		this.cenaPersonagemSelecionado = cenaPersonagemSelecionado;
+	}
+
+	public String getCenaGatilhos() {
+		return cenaGatilhos;
+	}
+
+	public void setCenaGatilhos(String cenaGatilhos) {
+		this.cenaGatilhos = cenaGatilhos;
+	}
+
+	public String getCenaResultados() {
+		return cenaResultados;
+	}
+
+	public void setCenaResultados(String cenaResultados) {
+		this.cenaResultados = cenaResultados;
+	}
+
+	public String getCenaAddDialogo() {
+		return cenaAddDialogo;
+	}
+
+	public void setCenaAddDialogo(String cenaAddDialogo) {
+		this.cenaAddDialogo = cenaAddDialogo;
+	}
+
+	public String getCenaBtnGravar() {
+		return cenaBtnGravar;
+	}
+
+	public void setCenaBtnGravar(String cenaBtnGravar) {
+		this.cenaBtnGravar = cenaBtnGravar;
+	}
+
+	public String getCenaBtnAntes() {
+		return cenaBtnAntes;
+	}
+
+	public void setCenaBtnAntes(String cenaBtnAntes) {
+		this.cenaBtnAntes = cenaBtnAntes;
+	}
+
+	public String getCenaBtnDepois() {
+		return cenaBtnDepois;
+	}
+
+	public void setCenaBtnDepois(String cenaBtnDepois) {
+		this.cenaBtnDepois = cenaBtnDepois;
+	}
+
+	public String getCenaConfirmacao() {
+		return cenaConfirmacao;
+	}
+
+	public void setCenaConfirmacao(String cenaConfirmacao) {
+		this.cenaConfirmacao = cenaConfirmacao;
+	}
+
+	public String getCenaMsgConfirmacao() {
+		return cenaMsgConfirmacao;
+	}
+
+	public void setCenaMsgConfirmacao(String cenaMsgConfirmacao) {
+		this.cenaMsgConfirmacao = cenaMsgConfirmacao;
+	}
+
+	public String getCenaCriarEditarApagar() {
+		return cenaCriarEditarApagar;
+	}
+
+	public void setCenaCriarEditarApagar(String cenaCriarEditarApagar) {
+		this.cenaCriarEditarApagar = cenaCriarEditarApagar;
+	}
+
+	public String getCenaAdicional() {
+		return cenaAdicional;
+	}
+
+	public void setCenaAdicional(String cenaAdicional) {
+		this.cenaAdicional = cenaAdicional;
+	}
+
+	public String getPersonagemCadastrar() {
+		return personagemCadastrar;
+	}
+
+	public void setPersonagemCadastrar(String personagemCadastrar) {
+		this.personagemCadastrar = personagemCadastrar;
+	}
+
+	public String getPersonagemEditar() {
+		return personagemEditar;
+	}
+
+	public void setPersonagemEditar(String personagemEditar) {
+		this.personagemEditar = personagemEditar;
+	}
+
+	public String getPersonagemCasdastrados() {
+		return personagemCasdastrados;
+	}
+
+	public void setPersonagemCasdastrados(String personagemCasdastrados) {
+		this.personagemCasdastrados = personagemCasdastrados;
+	}
+
+	public String getPersonagemBtnEditar() {
+		return personagemBtnEditar;
+	}
+
+	public void setPersonagemBtnEditar(String personagemBtnEditar) {
+		this.personagemBtnEditar = personagemBtnEditar;
+	}
+
+	public String getPersonagemLblEditando() {
+		return personagemLblEditando;
+	}
+
+	public void setPersonagemLblEditando(String personagemLblEditando) {
+		this.personagemLblEditando = personagemLblEditando;
+	}
+
+	public String getPersonagemNome() {
+		return personagemNome;
+	}
+
+	public void setPersonagemNome(String personagemNome) {
+		this.personagemNome = personagemNome;
+	}
+
+	public String getPersonagemFuncao() {
+		return personagemFuncao;
+	}
+
+	public void setPersonagemFuncao(String personagemFuncao) {
+		this.personagemFuncao = personagemFuncao;
+	}
+
+	public String getPersonagemArquetipo() {
+		return personagemArquetipo;
+	}
+
+	public void setPersonagemArquetipo(String personagemArquetipo) {
+		this.personagemArquetipo = personagemArquetipo;
+	}
+
+	public String getPersonagemPhysic() {
+		return personagemPhysic;
+	}
+
+	public void setPersonagemPhysic(String personagemPhysic) {
+		this.personagemPhysic = personagemPhysic;
+	}
+
+	public String getPersonagemPhysico() {
+		return personagemPhysico;
+	}
+
+	public void setPersonagemPhysico(String personagemPhysico) {
+		this.personagemPhysico = personagemPhysico;
+	}
+
+	public String getPersonagemObjetivo() {
+		return personagemObjetivo;
+	}
+
+	public void setPersonagemObjetivo(String personagemObjetivo) {
+		this.personagemObjetivo = personagemObjetivo;
+	}
+
+	public String getPersonagemBio() {
+		return personagemBio;
+	}
+
+	public void setPersonagemBio(String personagemBio) {
+		this.personagemBio = personagemBio;
+	}
+
+	public String getPersonagemJornada() {
+		return personagemJornada;
+	}
+
+	public void setPersonagemJornada(String personagemJornada) {
+		this.personagemJornada = personagemJornada;
+	}
+
+	public String getPersonagemBtnGravar() {
+		return personagemBtnGravar;
+	}
+
+	public void setPersonagemBtnGravar(String personagemBtnGravar) {
+		this.personagemBtnGravar = personagemBtnGravar;
+	}
+
 	public String getMenuIdioma() {
 		return menuIdioma;
 	}
@@ -609,6 +1032,53 @@ public class LanguageBean implements Serializable{
 		this.menuIdioma = "Idioma";
 		this.menuPortugues = "Português";
 		this.menuIngles = "Inglês";
+		this.personagemCadastrar = "Cadastrar Personagem";
+		this.personagemEditar = "Editar Personagem";
+		this.personagemCasdastrados = "Personagens Cadastrados";
+		this.personagemBtnEditar = "Editar";
+		this.personagemLblEditando = "Editando...";
+		this.personagemNome = "Nome";
+		this.personagemFuncao = "Função";
+		this.personagemArquetipo = "Arquétipo";
+		this.personagemPhysic = "Características Físicas";
+		this.personagemPhysico = "Características Psicológicas";
+		this.personagemObjetivo = "Objetivos";
+		this.personagemBio = "Biografia";
+		this.personagemJornada = "Jornada";
+		this.personagemBtnGravar = "Registrar";
+		this.cenaCriarEditarApagar = "Criar/Modificar/Descartar";
+		this.cenaAdicional = "Cena Adicional";
+		this.cenaBtnAntes = "Antes";
+		this.cenaBtnDepois = "Depois";
+		this.cenaConfirmacao = "Confirmação";
+		this.cenaMsgConfirmacao = "Você confirma que não será criada cena para esta sentença? Não será possível reverter essa escolha.";
+		this.cenaCompor = "Compor Cena";
+		this.cenaAnterior = "Cena Anterior";
+		this.cenaPosterior = "Cena Posterior";
+		this.cenaDados = "Dados da Cena";
+		this.cenaLocal = "Local";
+		this.cenaTipoLocal = "Tipo de local";
+		this.cenaTempo = "Tempo";
+		this.cenaPersonagemDisponivel = "Disponíveis";
+		this.cenaPersonagemSelecionado = "Selecionados";
+		this.cenaGatilhos = "Gatilhos";
+		this.cenaResultados = "Resultados";
+		this.cenaAddDialogo = "+ Adicionar Diálogos";
+		this.cenaBtnGravar = "Cadastrar Cena";
+		this.dialogoCena = "Dialógos";
+		this.dialogoInserir = "Adicionar Novo Diálogo";
+		this.dialogoIntroducao = "Introdução";
+		this.dialogoPersonagem = "Personagem";
+		this.dialogoObs = "Observações";
+		this.dialogoFala = "Fala";
+		this.dialogoNovo = "Novo Diálogo";
+		this.usuarioLabel = "Usuários";
+		this.usuarioLabelNovo = "Novo Usuário";
+		this.usuarioNome = "Nome";
+		this.usuarioPerfil = "Perfil";
+		this.usuarioBtnCadastrar = "Gravar";
+		this.usuarioBtnLogin = "Log In";
+		this.usuarioBtnAtualizar = "Atualizar";
 	}
 	
 	private void LoadEnglish() {
@@ -676,6 +1146,55 @@ public class LanguageBean implements Serializable{
 		this.menuIdioma = "Language";
 		this.menuPortugues = "Portuguese";
 		this.menuIngles = "English";
+		this.personagemCadastrar = "Project Characters";
+		this.personagemEditar = "Edit Character";
+		this.personagemCasdastrados = "Characters";
+		this.personagemBtnEditar = "Edit";
+		this.personagemLblEditando = "Editing...";
+		this.personagemNome = "Name";
+		this.personagemFuncao = "Function";
+		this.personagemArquetipo = "Archetype";
+		this.personagemPhysic = "Physical traits";
+		this.personagemPhysico = "Physiological traits";
+		this.personagemObjetivo = "Goals";
+		this.personagemBio = "Biography";
+		this.personagemJornada = "Jorney";
+		this.personagemBtnGravar = "Record";
+		this.cenaCriarEditarApagar = "Create/Edit/Delete";
+		this.cenaAdicional = "Additional Scene";
+		this.cenaBtnAntes = "Before";
+		this.cenaBtnDepois = "After";
+		this.cenaConfirmacao = "Confirmation";
+		this.cenaMsgConfirmacao = "Do not you will create the scene for this sentence? It is not possible to revert this change.";
+		this.cenaCompor = "Scene Desing";
+		this.cenaAnterior = "Previous Scene";
+		this.cenaPosterior = "Post Scene";
+		this.cenaDados = "Scene Data";
+		this.cenaLocal = "Scene Place";
+		this.cenaTipoLocal = "Place Type";
+		this.cenaTempo = "Time";
+		this.cenaPersonagemDisponivel = "Available";
+		this.cenaPersonagemSelecionado = "Selected";
+		this.cenaGatilhos = "Triggers";
+		this.cenaResultados = "Outcomes";
+		this.cenaAddDialogo = "+ Add Dialogs";
+		this.cenaBtnGravar = "Record Scene";
+		this.dialogoCena = "Dialogs";
+		this.dialogoInserir = "Add New Dialog";
+		this.dialogoIntroducao = "Introduction";
+		this.dialogoPersonagem = "Character";
+		this.dialogoObs = "Observation";
+		this.dialogoFala = "Speach";
+		this.dialogoNovo = "New Dialog";
+		this.usuarioLabel = "Users";
+		this.usuarioLabelNovo = "New User";
+		this.usuarioNome = "User Name";
+		this.usuarioPerfil = "Profile";
+		this.usuarioBtnCadastrar = "Save";
+		this.usuarioBtnLogin = "Log In";
+		this.usuarioBtnAtualizar = "Update";
+
+
 	}
 	
 	public String getTitulo() {

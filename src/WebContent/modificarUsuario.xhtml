@@ -8,7 +8,7 @@
 <ui:composition template="_template.xhtml">
 	<ui:define name="conteudo">
 		<p:outputPanel>
-			<h3>Novo Usuário</h3>
+			<h3><h:outputText value="#{languageBean.usuarioLabelNovo}"/> </h3>
 		</p:outputPanel>
 		<p:staticMessage id="semAcesso"
 			rendered="#{!usuarioLogado.isUsuarioAdministrador()}"
@@ -16,9 +16,9 @@
 			detail="Você não possui permissão para cadastrar usuários."
 			summary="ERRO!" style="margin-top: 30px; height: 30px" />
 		<h:form rendered="#{usuarioLogado.isUsuarioAdministrador()}">
-			<p:fieldset legend="Usuário">
+			<p:fieldset legend="#{languageBean.usuarioLabel}">
 				<h:panelGrid columns="2">
-					<p:outputLabel for="selecaoDeUsuario" value="Usuario: " />
+					<p:outputLabel for="selecaoDeUsuario" value="#{languageBean.usuarioLabel}: " />
 					<p:selectOneListbox id="selecaoDeUsuario" filter="true"
 						filterMatchMode="contains"
 						value="#{modificarUsuarioBean.idUsuario}">
@@ -32,7 +32,7 @@
 				<p:separator />
 
 				<h:panelGrid columns="3" id="painelUsuarioSelecionado">
-					<p:outputLabel value="Nome: " for="nome" />
+					<p:outputLabel value="#{languageBean.usuarioNome}: " for="nome" />
 					<p:inputText id="nome"
 						value="#{modificarUsuarioBean.usuario.nomeUsuario}"
 						required="true" requiredMessage="Preenchimento obrigatório"
@@ -56,7 +56,7 @@
 					</p:inputText>
 					<p:message for="email" id="messageEmail" />
 
-					<p:outputLabel value="Perfil: " for="perfil" />
+					<p:outputLabel value="#{languageBean.usuarioPerfil}: " for="perfil" />
 					<p:selectOneRadio id="perfil"
 						value="#{modificarUsuarioBean.usuario.perfilUsuario}"
 						required="true" requiredMessage="Preenchimento obrigatório">
@@ -65,7 +65,7 @@
 					</p:selectOneRadio>
 					<p:message for="perfil" id="messagePerfil" />
 
-					<p:commandButton value="Atualizar"
+					<p:commandButton value="#{languageBean.usuarioBtnAtualizar}"
 						action="#{modificarUsuarioBean.gravar}" process="@form"
 						update="@form" icon="pi pi-fw pi-save" />
 				</h:panelGrid>

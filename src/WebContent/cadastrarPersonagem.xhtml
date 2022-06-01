@@ -26,27 +26,26 @@
 				<p:menuitem value="Meus Projetos" url="inicio.xhtml" />
 				<p:menuitem value="#{personagemBean.projeto.nome}"
 					url="gerenciarProjeto.xhtml?projetoId=#{personagemBean.projeto.id}" />
-				<p:menuitem value="Gerenciar Projeto"
+				<p:menuitem value="#{languageBean.labelManage}"
 					url="gerenciarProjeto.xhtml?projetoId=#{personagemBean.projeto.id}" />
-				<p:menuitem value="Cadastrar Personagem" url="#" />
+				<p:menuitem value="#{languageBean.personagemCadastrar}" url="#" />
 			</p:breadCrumb>
 			<p:outputPanel rendered="#{param.personagemId == null}">
 				<h3>
-					Cadastrar Personagem do Projeto ::
+					<h:outputText value="#{languageBean.personagemCadastrar}"/> ::
 					<h:outputText value="#{personagemBean.projeto.nome}" />
 				</h3>
 			</p:outputPanel>
 			<p:outputPanel rendered="#{param.personagemId != null}">
 				<h3>
-					Editar Personagem
-					<h:outputText value="#{personagemBean.personagem.nome}" />
-					do Projeto ::
+					<h:outputText value="#{languageBean.personagemEditar}"/> - 
+					<h:outputText value="#{personagemBean.personagem.nome}" /> ::
 					<h:outputText value="#{personagemBean.projeto.nome}" />
 				</h3>
 			</p:outputPanel>
 
 			<p:carousel value="#{personagemBean.personagensDoProjeto}"
-				headerText="Personagens Cadastrados" var="p"
+				headerText="#{languageBean.personagemCasdastrados}" var="p"
 				itemStyle="text-align: center" responsive="true">
 
 				<p:panelGrid columns="1" style="width: 100%; margin: 10px 0px"
@@ -56,7 +55,7 @@
 						<h:outputText value="#{p.nome}" />
 					</f:facet>
 					<h:outputText value="#{p.funcao}" />
-					<p:link outcome="cadastrarPersonagem" value="Editar"
+					<p:link outcome="cadastrarPersonagem" value="#{languageBean.personagemBtnEditar}"
 						style="text-align: center">
 						<f:param name="projetoId" value="#{personagemBean.projeto.id}" />
 						<f:param name="personagemId" value="#{p.id}" />
@@ -69,13 +68,13 @@
 			<p:outputPanel>
 				<h3>
 					<h:outputText rendered="#{param.personagemId != null}"
-						value="Editando..." style="color: red" />
+						value="#{languageBean.personagemLblEditando}" style="color: red" />
 				</h3>
 			</p:outputPanel>
 
 			<h:panelGrid columns="5" style="margin-top: 40px">
 
-				<p:outputLabel value="Nome: " for="nome" />
+				<p:outputLabel value="#{languageBean.personagemNome}: " for="nome" />
 				<p:inputText id="nome" value="#{personagemBean.personagem.nome}"
 					required="true" size="40"
 					requiredMessage="Preenchimento obrigatório">
@@ -88,7 +87,7 @@
 					position="top" />
 				<p:message for="nome" id="messageNome" />
 
-				<p:outputLabel value="Função: " for="funcao" />
+				<p:outputLabel value="#{languageBean.personagemFuncao}: " for="funcao" />
 				<p:selectOneMenu id="funcao"
 					value="#{personagemBean.personagem.funcao}" required="true"
 					requiredMessage="Preenchimento obrigatório"
@@ -107,7 +106,7 @@
 					position="top" />
 				<p:message for="funcao" id="messageFuncao" />
 
-				<p:outputLabel value="Arquétipo: " for="arquetipo" />
+				<p:outputLabel value="#{languageBean.personagemArquetipo}: " for="arquetipo" />
 				<p:selectOneMenu id="arquetipo"
 					value="#{personagemBean.personagem.arquetipo}" required="true"
 					requiredMessage="Preenchimento obrigatório"
@@ -128,7 +127,7 @@
 					position="top" />
 				<p:message for="arquetipo" id="messageArquetipo" />
 
-				<p:outputLabel value="Características Físicas: "
+				<p:outputLabel value="#{languageBean.personagemPhysic}: "
 					for="caracteristicasFisicas" />
 				<p:inputTextarea id="caracteristicasFisicas"
 					value="#{personagemBean.personagem.caracteristicasFisicas}"
@@ -145,7 +144,7 @@
 				<p:message for="caracteristicasFisicas"
 					id="messageCaracteristicasFisicas" />
 
-				<p:outputLabel value="Características Psicológicas: "
+				<p:outputLabel value="#{languageBean.personagemPhysico}: "
 					for="caracteristicasPsicologicas" />
 				<p:inputTextarea id="caracteristicasPsicologicas"
 					value="#{personagemBean.personagem.caracteristicasPsicologicas}"
@@ -162,7 +161,7 @@
 				<p:message for="caracteristicasPsicologicas"
 					id="messageCaracteristicasPsicologicas" />
 
-				<p:outputLabel value="Objetivo: " for="objetivo" />
+				<p:outputLabel value="#{languageBean.personagemObjetivo}: " for="objetivo" />
 				<p:inputTextarea id="objetivo"
 					value="#{personagemBean.personagem.objetivo}"
 					validatorMessage="Máximo 3096 caracteres" rows="10" cols="50">
@@ -176,7 +175,7 @@
 					value="Objetivo do personagem na história." position="top" />
 				<p:message for="objetivo" id="messageObjetivo" />
 
-				<p:outputLabel value="Biografia: " for="biografia" />
+				<p:outputLabel value="#{languageBean.personagemBio}: " for="biografia" />
 				<p:inputTextarea id="biografia"
 					value="#{personagemBean.personagem.biografia}"
 					validatorMessage="Máximo 3096 caracteres" rows="10" cols="50">
@@ -191,7 +190,7 @@
 					position="top" />
 				<p:message for="biografia" id="messageBiografia" />
 
-				<p:outputLabel value="Jornada: " for="jornada" />
+				<p:outputLabel value="#{languageBean.personagemJornada}: " for="jornada" />
 				<p:inputTextarea id="jornada"
 					value="#{personagemBean.personagem.jornada}"
 					validatorMessage="Máximo 3096 caracteres" rows="10" cols="50">
@@ -208,7 +207,7 @@
 
 			</h:panelGrid>
 
-			<p:commandButton value="Registrar" icon="pi pi-fw pi-user-plus"
+			<p:commandButton value="#{languageBean.personagemBtnGravar}" icon="pi pi-fw pi-user-plus"
 				update="@form" process="@form" action="#{personagemBean.registrar}"
 				style="margin-top: 40px;" />
 		</h:form>

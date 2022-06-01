@@ -8,7 +8,7 @@
 <ui:composition template="_template.xhtml">
 	<ui:define name="conteudo">
 		<p:outputPanel>
-			<h3>Novo Usuário</h3>
+			<h3><h:outputText value="#{languageBean.usuarioLabelNovo}"/> </h3>
 		</p:outputPanel>
 		<p:staticMessage id="semAcesso"
 			rendered="#{!usuarioBean.podeCadastrarUsuario(usuarioLogado)}"
@@ -16,9 +16,9 @@
 			detail="Você não possui permissão para cadastrar usuários."
 			summary="ERRO!" style="margin-top: 30px; height: 30px" />
 		<h:form rendered="#{usuarioBean.podeCadastrarUsuario(usuarioLogado)}">
-			<p:fieldset legend="Usuário">
+			<p:fieldset legend="#{languageBean.usuarioLabel}">
 				<h:panelGrid columns="3">
-					<p:outputLabel value="Nome do Usuário: " for="nome" />
+					<p:outputLabel value="#{languageBean.usuarioNome}: " for="nome" />
 					<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}"
 						required="true" requiredMessage="Preenchimento obrigatório"
 						validatorMessage="Mínimo 3 caracteres">
@@ -40,7 +40,7 @@
 					</p:inputText>
 					<p:message for="email" id="messageEmail" />
 
-					<p:outputLabel value="Senha: " for="senha" />
+					<p:outputLabel value="#{languageBean.labelSenha}: " for="senha" />
 					<p:password id="senha" value="#{usuarioBean.usuario.senhaUsuario}"
 						required="true" feedback="true"
 						requiredMessage="Preenchimento obrigatório">
@@ -49,7 +49,7 @@
 					</p:password>
 					<p:message for="senha" id="messageSenha" />
 
-					<p:outputLabel value="Perfil: " for="perfil" />
+					<p:outputLabel value="#{languageBean.usuarioPerfil}: " for="perfil" />
 					<p:selectOneRadio id="perfil"
 						value="#{usuarioBean.usuario.perfilUsuario}" required="true"
 						requiredMessage="Preenchimento obrigatório">
@@ -58,12 +58,12 @@
 					</p:selectOneRadio>
 					<p:message for="perfil" id="messagePerfil" />
 
-					<p:commandButton value="Cadastrar" action="#{usuarioBean.gravar}"
+					<p:commandButton value="#{languageBean.usuarioBtnCadastrar}" action="#{usuarioBean.gravar}"
 						process="@form" update="@form" icon="pi pi-fw pi-save" />
 				</h:panelGrid>
 			</p:fieldset>
 			<h:panelGrid columns="1" cellpadding="15">
-				<p:button value="Fazer login" href="login.xhtml"
+				<p:button value="#{languageBean.usuarioBtnLogin}" href="login.xhtml"
 					styleClass="ui-button-flat" />
 			</h:panelGrid>
 		</h:form>

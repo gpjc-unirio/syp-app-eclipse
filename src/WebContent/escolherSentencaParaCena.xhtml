@@ -27,13 +27,13 @@
 				<p:menuitem value="Meus Projetos" url="inicio.xhtml" />
 				<p:menuitem value="#{sentencaBean.projeto.nome}"
 					url="gerenciarProjeto.xhtml?projetoId=#{sentencaBean.projeto.id}" />
-				<p:menuitem value="Gerenciar Projeto"
+				<p:menuitem value="#{languageBean.labelManage}"
 					url="gerenciarProjeto.xhtml?projetoId=#{sentencaBean.projeto.id}" />
-				<p:menuitem value="Compor Cenas" url="#" />
+				<p:menuitem value="#{languageBean.menuCenas}" url="#" />
 			</p:breadCrumb>
 
 			<p:outputPanel style="margin-top: 10px;">
-				<h3>Cenas:</h3>
+				<h3><h:outputText value="#{languageBean.menuCenas}"/>:</h3>
 			</p:outputPanel>
 
 			<p:dataTable
@@ -43,10 +43,10 @@
 				<p:column headerText="Id">
 					<h:outputText value="#{cena.ordem}" />
 				</p:column>
-				<p:column headerText="Título">
+				<p:column headerText="#{languageBean.labelTitulo}">
 					<h:outputText value="#{cena.titulo}" />
 				</p:column>
-				<p:column headerText="Tipo BPMN"
+				<p:column headerText="#{languageBean.sentencaClmBPMN}"
 					rendered="#{!sentencaBean.todasAsSentencasJaGeraramCenas}">
 					<h:outputText value="#{cena.sentenca.tipoDeElementoBPMN}" />
 				</p:column>
@@ -72,7 +72,7 @@
 						<h:outputText value="Cena criada" />
 					</p:outputPanel>
 				</p:column>
-				<p:column headerText="Criar/Modificar/Descartar">
+				<p:column headerText="#{languageBean.cenaCriarEditarApagar}">
 					<p:button disabled="#{cena.id > 0}" outcome="comporCena"
 						icon="pi pi-fw pi-file">
 						<f:param name="sentencaId" value="#{cena.sentenca.id}" />
@@ -83,19 +83,19 @@
 					</p:button>
 					<p:commandButton disabled="#{cena.id > 0}" icon="pi pi-fw pi-trash"
 						action="#{sentencaBean.descartarSentenca(cena.sentenca.id, cena.ordem)}">
-						<p:confirm header="Confirmação"
-							message="Você confirma que não será criada cena para esta sentença? Não será possível reverter essa escolha."
+						<p:confirm header="#{languageBean.cenaConfirmacao}"
+							message="#{languageBean.cenaMsgConfirmacao}"
 							icon="pi pi-exclamation-triangle" />
 					</p:commandButton>
 				</p:column>
-				<p:column headerText="Cena Adicional"
+				<p:column headerText="#{languageBean.cenaAdicional}"
 					rendered="#{sentencaBean.todasAsSentencasJaGeraramCenas}">
 					<p:commandButton disabled="#{cena.id == 0}"
-						icon="pi pi-fw pi-arrow-up" value="Antes"
+						icon="pi pi-fw pi-arrow-up" value="#{languageBean.cenaBtnAntes}"
 						action="#{sentencaBean.criarCenaAdicional(false, cena.id)}">
 					</p:commandButton>
 					<p:commandButton disabled="#{cena.id == 0}"
-						icon="pi pi-fw pi-arrow-down" value="Depois"
+						icon="pi pi-fw pi-arrow-down" value="#{languageBean.cenaBtnDepois}"
 						action="#{sentencaBean.criarCenaAdicional(true, cena.id)}">
 						<f:param name="cenaAnteriorId" value="#{cena.id}" />
 					</p:commandButton>
@@ -103,9 +103,9 @@
 			</p:dataTable>
 
 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-				<p:commandButton value="Sim" type="button"
+				<p:commandButton value="#{languageBean.labelSim}" type="button"
 					styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-				<p:commandButton value="Não" type="button"
+				<p:commandButton value="#{languageBean.labelNao}" type="button"
 					styleClass="ui-confirmdialog-no" icon="pi pi-times" />
 			</p:confirmDialog>
 
